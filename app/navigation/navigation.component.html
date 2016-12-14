@@ -1,0 +1,26 @@
+<div id="navigationsection" class="row">
+	
+	<div class="col-xs-12 col-sm-4 col-md-4">
+		<p>Logo</p>
+		{{isuser}}
+	</div>
+	
+	<div class="col-xs-12 col-sm-8 col-md-8">
+		
+		<div id="signIn" *ngIf="!isuser">
+			<form [formGroup]="signInForm" (ngSubmit)="onSignup()" class="form-inline">
+				<input type="text" class="form-control" placeholder="email" formControlName="email" />
+				<input type="password" class="form-control" placeholder="password" formControlName="password" />
+				<button class="btn btn-info">Sign In</button>
+			</form>
+		</div>
+		
+		<div id="signedIn" *ngIf="isuser">
+			<p>Welcome dude</p>
+			<p>View Profile</p>
+			<p (click)="onLogout()">Log Out</p>
+		</div>
+		
+	</div>
+	
+</div>
